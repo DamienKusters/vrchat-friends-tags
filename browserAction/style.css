@@ -1,0 +1,57 @@
+@font-face {
+  font-family: DosisBold;
+  src: url(Dosis-Bold.ttf);
+}
+
+@font-face {
+  font-family: DosisLight;
+  src: url(Dosis-Light.ttf);
+}
+
+:root {
+  --dark-blue: #07242B;
+  --medium-blue: #053C48;
+  --light-blue: #6AE3F9;
+  --gray: #1A2026;
+}
+
+
+body{
+  margin: 0px;
+  padding: 0px 30px;
+  min-width: 200px;
+  background-color: var(--dark-blue);
+  border: solid var(--medium-blue) 3px;
+}
+
+h1 {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  font-style: italic;
+  font-weight: lighter;
+  font-size: 20px;
+  margin-top: 0px;
+  font-family: DosisLight;
+}
+
+.content_header {
+  color: var(--light-blue);
+  font-family: DosisBold;
+}
+
+.content_body {
+  color: var(--gray);
+  background-color: whitesmoke;
+  font-family: DosisLight;
+
+  padding: 10px;
+
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  min-height: 50px;
+}
