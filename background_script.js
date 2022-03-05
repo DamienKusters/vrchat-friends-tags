@@ -19,24 +19,41 @@ async function tabUpdated()
 /*
 Assign `notify()` as a listener to messages from the content script.
 */
-browser.runtime.onMessage.addListener((req, sender, sendResponse) => {
-  if(req?.tag != null)
-  {
-    //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/set
-    var obj2 = {"id":"1","tags":["a","b","c"]};
-    browser.storage.local.set({obj2}).then(() => console.log("OK"), () => console.log("O-NAY"));
-    browser.storage.local.get().then((i) => console.log(i), () => console.log("CANT GET"));
-  }
-
+browser.runtime.onMessage.addListener(async (req, sender, sendResponse) => {
   if(req?.userName != null)
     selectedUserName = req.userName;
 
   if(selectedUserId == null)
     return Promise.reject("No friend selected");
+
+  //https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage/StorageArea/set
+  var tags = [];
+  await browser.storage.local.get(selectedUserId).then((obj) => {
+    var t = obj[selectedUserId];
+    if(t == null)
+      return;
+    else if(t.length > 0)
+    {
+      t.forEach(tag => {
+        tags.push(tag);
+      });
+    }
+  }, () => console.log("CANT GET"));
+  if(req?.tag != null)
+  {
+    tags.push(req.tag);
+    var key = selectedUserId;
+    var obj = {};
+    obj[key] = tags;
+    await browser.storage.local.set(obj).then(() => console.log("OK"), () => console.log("NO-K"));
+  }
+  console.log("TAGS:");
+  console.log(tags);
   return Promise.resolve(
     {
       "userName":selectedUserName,
       "userId":selectedUserId,
+      "tags":tags,
     }
   );
 });

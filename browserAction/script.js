@@ -4,6 +4,10 @@ browser.runtime.sendMessage("get").then(res => {
     document.getElementById("lbl_userName").innerText = res.userName;
     fullUserId = res.userId;
     document.getElementById("lbl_userId").innerText = fullUserId.slice(0,8) + "...";
+    if(res.tags.length > 0)
+        res.tags.forEach(tag => {
+            document.getElementById("content_body").innerHTML += "<div class='tag'>"+tag+"<div class='btn_del'></div></div>";
+        });
 }).catch(e => document.getElementById("lbl_userId").innerText = e);
 
 document.getElementById("btn_tag").addEventListener("click", () => {
