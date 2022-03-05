@@ -38,12 +38,19 @@ h2 {
   font-family: DosisLight;
 }
 
-.content_header {
+#content_header {
   color: var(--light-blue);
   font-family: DosisBold;
 }
 
-.content_body {
+#content_tag{
+  background-color: var(--gray);
+  margin: 0px;
+
+  padding: 10px;
+}
+
+#content_body {
   color: var(--gray);
   background-color: whitesmoke;
   font-family: DosisLight;
@@ -54,4 +61,85 @@ h2 {
   border-top-right-radius: 20px;
 
   min-height: 50px;
+}
+
+button{
+  border: 1px solid var(--light-blue);
+  border-radius: 5px;
+  background-color: var(--dark-blue);
+  font-family: DosisLight;
+
+  padding: 5px 10px;
+
+  transition-duration: .3s;
+
+  color: var(--light-blue);
+}
+
+button:hover{
+  background-color: #075263;
+  cursor: pointer;
+}
+
+input {
+  border: 2px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px 10px;
+
+  color: white;
+
+  transition-duration: .3s;
+}
+
+input:hover{
+  background-color: white;
+  color: black;
+}
+
+input:focus{
+  border: 3px solid white;
+  background-color: white;
+  color: black;
+}
+
+.tag {
+  border: 7px solid var(--dark-blue);
+  border-radius: 50px;
+  background-color: var(--medium-blue);
+  font-family: DosisBold;
+
+  text-align: center;
+
+  padding: 7px;
+
+  margin: 10px;
+
+  color: var(--light-blue);
+
+  position: relative;
+}
+
+.btn_del{
+  width: 20px;
+  height: 20px;
+
+  border-radius: 100px;
+
+  transition-duration: .3s;
+
+  background-color: transparent;
+
+  position: absolute;
+  right: 10px;
+  top: 7px;
+}
+
+.tag:hover .btn_del{
+  background-color: red;
+}
+
+.btn_del:hover{
+  cursor: pointer;
+  background-color: rgb(255, 146, 146)!important;
 }
