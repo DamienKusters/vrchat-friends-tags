@@ -19,7 +19,7 @@
 body{
   margin: 0px;
   padding: 0px 30px;
-  min-width: 200px;
+  min-width: 325px;
   background-color: var(--dark-blue);
   border: solid var(--medium-blue) 3px;
 }
@@ -69,6 +69,7 @@ button{
   background-color: var(--dark-blue);
   font-family: DosisLight;
 
+
   padding: 5px 10px;
 
   transition-duration: .3s;
@@ -82,10 +83,12 @@ button:hover{
 }
 
 input {
-  border: 2px solid white;
+  border: 3px solid white;
   border-radius: 5px;
   background-color: transparent;
   padding: 5px 10px;
+
+  width: calc(100% - 95px);
 
   color: white;
 
@@ -101,6 +104,10 @@ input:focus{
   border: 3px solid white;
   background-color: white;
   color: black;
+}
+
+#lbl_userId{
+  font-size: 18px;
 }
 
 .tag {
